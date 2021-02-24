@@ -1,8 +1,7 @@
 package io.futakotome;
 
 import net.bytebuddy.agent.builder.AgentBuilder;
-import net.bytebuddy.asm.Advice;
-import net.bytebuddy.description.ModifierReviewable;
+import net.bytebuddy.implementation.MethodDelegation;
 
 import java.lang.instrument.Instrumentation;
 
@@ -13,13 +12,11 @@ public class Initial {
         System.out.println("This is the tenant extractor.");
 
         new AgentBuilder.Default()
-                .type(hasSuperType(nameStartsWith("org.springframework.web.servlet")))
+                .type(named("org.springframework.web.servlet.DispatcherServlet"))
                 .transform((builder, typeDescription, classLoader, javaModule) ->
-                        builder.visit(Advice
-                                .to(MyAdvice.class)
-                                .on(isMethod()))
+                        builder.method(named("doDispatch"))
+                                .intercept(MethodDelegation.to(SpringMvcInterceptor.class))
                 )
                 .installOn(instrumentation);
-
     }
 }
