@@ -10,4 +10,8 @@ public final class ThreadUtils {
     public static String addThreadPrefix(String purpose, AgentType agentType) {
         return THREAD_PREFIX + agentType.name() + "-" + purpose;
     }
+
+    public static String addThreadPrefix(String purpose) {
+        return THREAD_PREFIX + purpose;
+    }
 }

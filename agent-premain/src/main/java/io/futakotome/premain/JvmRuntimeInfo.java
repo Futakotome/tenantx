@@ -72,7 +72,7 @@ public class JvmRuntimeInfo {
         return updateVersion;
     }
 
-    public static boolean isIsHotSpot() {
+    public static boolean isHotSpot() {
         return isHotSpot;
     }
 
