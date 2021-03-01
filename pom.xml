@@ -11,6 +11,7 @@
         <module>agent-premain</module>
         <module>agent-core</module>
         <module>agent-sdk</module>
+        <module>apm-agent-starter</module>
     </modules>
     <packaging>pom</packaging>
 

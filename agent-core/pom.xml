@@ -30,5 +30,15 @@
             <artifactId>agent-premain</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.dslplatform</groupId>
+            <artifactId>dsl-json</artifactId>
+            <version>1.9.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.stagemonitor</groupId>
+            <artifactId>stagemonitor-configuration</artifactId>
+            <version>0.87.3</version>
+        </dependency>
     </dependencies>
 </project>
